@@ -31,7 +31,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="<?php bloginfo( 'url' ) ?>/" title="<?php bloginfo( 'name' ) ?>" rel="homepage"><?php bloginfo( 'name' ) ?></a>	
+						<?php bs3entry_the_custom_logo(); ?>
 					</div>
 
 					<div class="navbar-collapse collapse navbar-responsive-collapse">

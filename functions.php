@@ -30,6 +30,9 @@ function bs3entry_setup() {
 	 */
 	load_theme_textdomain( 'bs3entry', get_template_directory() . '/languages' );
 
+	// Add logo upload in customizer WordPress 4.5+
+  	add_theme_support( 'custom-logo' );
+
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
@@ -77,6 +80,43 @@ function bs3entry_setup() {
 }
 endif; // bs3entry_setup
 add_action( 'after_setup_theme', 'bs3entry_setup' );
+
+
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
+function bs3entry_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'bs3entry_content_width', 640 );
+}
+add_action( 'after_setup_theme', 'bs3entry_content_width', 0 );
+
+
+if ( !function_exists( 'bs3entry_the_custom_logo' ) ) :
+/**
+ * Displays the optional custom logo.
+ *
+ * Does nothing if the custom logo is not available.
+ *
+ */
+function bs3entry_the_custom_logo() {
+    // Try to retrieve the Custom Logo
+    $output = '';
+    if (function_exists('get_custom_logo'))
+        $output = get_custom_logo();
+
+    // Nothing in the output: Custom Logo is not supported, or there is no selected logo
+    // In both cases we display the site's name
+    if (empty($output))
+        $output = '<a class="navbar-brand" href="' . esc_url(home_url('/')) . '">' . get_bloginfo('name') . '</a>';
+
+    echo $output;
+}
+endif;
+
 
 
 /**
