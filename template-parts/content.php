@@ -16,6 +16,17 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+		
+		<!--  add thumbnail feature -->
+
+			<?php if ( has_post_thumbnail() ) : ?>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="img-thumbnail">
+			<?php the_post_thumbnail(); ?>
+			</a>
+		<?php endif; ?>
+
+
+
 		<?php
 			/* translators: %s: Name of current post */
 			the_content( sprintf(

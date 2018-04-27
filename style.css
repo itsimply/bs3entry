@@ -8409,19 +8409,21 @@ button.close {
 # Mixins
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-# Mixins
+# Wordpress main style
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-## Wordpress Custom Class Style
+## Post and Pages
 --------------------------------------------------------------*/
 .sticky {
   display: block; }
 
 .hentry {
-  margin: 0 0 1.5em; }
+  margin: 0 0 1.5em;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1.8em; }
 
 .byline,
 .updated:not(.published) {
@@ -8443,27 +8445,27 @@ button.close {
 /*--------------------------------------------------------------
 ## Post Meta Style
 --------------------------------------------------------------*/
-.entry-meta,
-.entry-footer {
+.entry-meta {
   font-size: 12px; }
-  .entry-meta .fa,
-  .entry-footer .fa {
+  .entry-meta .fa {
     color: #777;
     margin-right: 2px; }
-  .entry-meta span,
-  .entry-footer span {
+  .entry-meta span {
     margin-right: 15px;
     display: inline-block; }
-    .entry-meta span:last-child,
-    .entry-footer span:last-child {
+    .entry-meta span:last-child {
       margin-right: 0; }
-  .entry-meta a,
-  .entry-footer a {
+  .entry-meta a {
     color: #777; }
-    .entry-meta a:hover,
-    .entry-footer a:hover {
+    .entry-meta a:hover {
       text-decoration: none;
       color: #333333; }
+
+/*--------------------------------------------------------------
+## Post Thumbnail
+--------------------------------------------------------------*/
+img.wp-post-image {
+  margin-bottom: 20px; }
 
 /*--------------------------------------------------------------
 ## Widgets
@@ -8572,6 +8574,51 @@ button.close {
       float: left;
       width: 33.33333333%; } }
 
+.content-area-left {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px; }
+  @media (min-width: 992px) {
+    .content-area-left {
+      float: left;
+      width: 66.66666667%; } }
+  @media (min-width: 992px) {
+    .content-area-left {
+      left: 33.33333333%; } }
+
+.widget-area-left {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px; }
+  @media (min-width: 992px) {
+    .widget-area-left {
+      float: left;
+      width: 33.33333333%; } }
+  @media (min-width: 992px) {
+    .widget-area-left {
+      right: 66.66666667%; } }
+
+.content-area-full-width {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px; }
+  @media (min-width: 992px) {
+    .content-area-full-width {
+      float: left;
+      width: 100%; } }
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+.site-footer {
+  background: #f8f8f8;
+  color: #777; }
+  .site-footer .site-info {
+    margin: 20px 0; }
+
 /*--------------------------------------------------------------
 # WordPress Media
 --------------------------------------------------------------*/
@@ -8668,6 +8715,10 @@ img {
 .wp-caption-text {
   padding: 9px; }
 
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+  outline: 0; }
+
 /*--------------------------------------------------------------
 # Comments
 --------------------------------------------------------------*/
@@ -8676,7 +8727,97 @@ img {
   list-style: none; }
 
 .comment-list ol {
-  list-style: none; }
+  list-style: none;
+  padding-left: 0; }
+
+.comments-title, .comment-reply-title {
+  padding-bottom: 9px;
+  margin: 40px 0 20px 0;
+  border-bottom: 1px solid #eee; }
+
+.comment-content a {
+  word-wrap: break-word; }
+
+.comment-author .avatar {
+  margin-right: 25px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: all .2s ease-in-out;
+  padding: 4px; }
+
+.comment-meta {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+.comment-details {
+  overflow: hidden;
+  zoom: 1;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #ddd; }
+
+.comment-details .reply {
+  margin-top: 10px; }
+
+.comment-date a {
+  font-size: 11px;
+  color: #777;
+  margin-right: 10px; }
+
+#commentform #comment {
+  width: 100% !important; }
+
+#commentform #submit {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc; }
+
+#commentfo#rm submit:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad; }
+
+/*--------------------------------------------------------------
+10.3 Comments
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Post and navigation
+--------------------------------------------------------------*/
+.pagination {
+  margin-top: 20px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: end;
+      align-items: flex-end;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+  .pagination .page-numbers {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    border-radius: 3px; }
+    .pagination .page-numbers.current {
+      background-color: #ddd;
+      text-decoration: none; }
+    .pagination .page-numbers:hover {
+      background-color: #ddd;
+      text-decoration: none; }
 
 /*--------------------------------------------------------------
 # Custom styles

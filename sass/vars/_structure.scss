@@ -4,7 +4,7 @@
 
 .site-content {
 	@include make-row();
-  word-break: break-word; 
+  	word-break: break-word; 
 }
 
 .content-area {
@@ -13,4 +13,36 @@
 
 .widget-area {
 	@include make-md-column(4);
+}
+
+// Sidebar on left side
+
+.content-area-left {
+	@include make-md-column(8);
+	@include make-md-column-push(4);
+}
+
+.widget-area-left {
+	@include make-md-column(4);
+	@include make-md-column-pull(8);
+}
+
+// Full width
+
+.content-area-full-width {
+	@include make-md-column(12);
+}
+
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+
+.site-footer {
+  background: $navbar-default-bg;
+  color: $color__light-grey;
+
+  .site-info {
+    margin: 20px 0; 
+  }
 }

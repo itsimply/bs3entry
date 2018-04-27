@@ -31,7 +31,11 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php the_posts_navigation(); ?>
+			<?php the_posts_pagination( array(
+				    'mid_size' => 2,
+				    'prev_text' => '<i class="fa fa-arrow-left" aria-hidden="true"></i><span class="sr-only">' . __( 'Previous Page', 'bs3entry' ) . '</span>',
+				    'next_text' => '<span class="sr-only">' . __( 'Next Page', 'bs3entry' ) . '</span><i class="fa fa-arrow-right" aria-hidden="true"></i>',
+				) ); ?>
 
 		<?php else : ?>
 

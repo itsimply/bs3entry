@@ -14,6 +14,7 @@ var gulp = require( 'gulp' ),
   imagemin = require('gulp-imagemin');
   bower = require('gulp-bower');
   zip = require('gulp-zip');
+  gcmq = require('gulp-group-css-media-queries');
 
 var config = {
      bowerDir: './bower_components' 
@@ -124,6 +125,15 @@ gulp.task('sass-min', function() {
         .pipe(gulp.dest('.'))
         .pipe(notify({ title: 'Sass', message: 'sass-min task complete' }));
 });
+
+// Group media queries. 
+
+gulp.task('mediaq', function () {
+   return gulp.src('./style.css')
+        .pipe(gcmq())
+        .pipe(gulp.dest('./gulptask'));
+});
+
 
 // Optimize Images
 gulp.task('images', function() {
